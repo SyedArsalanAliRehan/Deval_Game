@@ -47,7 +47,7 @@ pipeline {
             steps {
                 sshagent(['2bf1c8da-886b-4e45-81b1-d9f210a020c0']) { // Replace with your Jenkins SSH credentials ID
                     sh """
-                    ssh -o StrictHostKeyChecking=no ${SSH_USER}@${STAGING_SERVER} << EOF
+                    ssh -o StrictHostKeyChecking=no ${SSH_USER}@${STAGING_SERVER} << 'EOF'
                     sudo yum install -y docker
                     sudo systemctl start docker
                     sudo systemctl enable docker
@@ -62,7 +62,7 @@ pipeline {
             steps {
                 sshagent(['2bf1c8da-886b-4e45-81b1-d9f210a020c0']) {
                     sh """
-                    ssh -o StrictHostKeyChecking=no ${SSH_USER}@${STAGING_SERVER} << EOF
+                    ssh -o StrictHostKeyChecking=no ${SSH_USER}@${STAGING_SERVER} << 'EOF'
                     docker pull ${DOCKER_IMAGE}:${DOCKER_TAG}
                     docker stop staging-container || true
                     docker rm staging-container || true
