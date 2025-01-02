@@ -45,7 +45,7 @@ pipeline {
 
         stage('Installing Docker on Staging Server') {
             steps {
-                sshagent(['5469fd0e-8804-4673-abb5-c21ed737c504']) { // Replace with your Jenkins SSH credentials ID
+                sshagent(['2bf1c8da-886b-4e45-81b1-d9f210a020c0']) { // Replace with your Jenkins SSH credentials ID
                     sh """
                     ssh -o StrictHostKeyChecking=no ${SSH_USER}@${STAGING_SERVER} << EOF
                     sudo yum install -y docker
@@ -60,7 +60,7 @@ pipeline {
 
         stage('Pulling Docker Image and Running Container') {
             steps {
-                sshagent(['5469fd0e-8804-4673-abb5-c21ed737c504']) {
+                sshagent(['2bf1c8da-886b-4e45-81b1-d9f210a020c0']) {
                     sh """
                     ssh -o StrictHostKeyChecking=no ${SSH_USER}@${STAGING_SERVER} << EOF
                     docker pull ${DOCKER_IMAGE}:${DOCKER_TAG}
