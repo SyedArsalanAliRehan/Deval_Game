@@ -4,7 +4,7 @@ pipeline {
     environment {
         DOCKER_IMAGE = "syedarsalanalirehan/xp_game"
         DOCKER_TAG = "latest"
-        DOCKER_REGISTRY_CREDENTIALS = 'a8506ee7-c1d1-4b2b-8bf8-06121c8218a6'
+        DOCKER_REGISTRY_CREDENTIALS = '7a41fc14-be46-48e8-a102-477e9b611c17'
         STAGING_SERVER = "13.127.252.71" // IP only for HTTP checks
         SSH_USER = "ec2-user"
     }
